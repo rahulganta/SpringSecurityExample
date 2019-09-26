@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,25 +27,18 @@
         <li class="nav-item" sec:authorize="isAuthenticated()">
             <a class="nav-link" th:href="@{/logout}">Logout</a>
         </li>
-        <li><div sec:authentication="name"></div></li>
-
     </ul>
 </nav>
 <div class="container-fluid">
     <h4>Welcome to Employee Dashboard</h4>
     <a th:href="@{/employees}">View Employees</a>
-
-    <div th:text="${#authentication.name}">
-        The value of the "name" property of the authentication object should appear here.
-    </div>
-
     <div sec:authorize="hasRole('USER')">Text visible to user.</div>
         <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
         <div sec:authorize="isAuthenticated()">
             Text visible only to authenticated users.
         </div>
         Authenticated username:
-        <div sec:authentication="name"></div>
+        <div sec:authentication="name">dfdfd</div>
         Authenticated user roles:
         <div sec:authentication="principal.authorities"></div>
 </div>
