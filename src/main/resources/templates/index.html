@@ -34,7 +34,9 @@
             </li>
         </ul>
 
+        <!--Display Logedin User Name-->
         <span class="navbar-text" sec:authentication="name"></span>
+
         <ul class="navbar-nav">
 
             <li class="nav-item" sec:authorize="isAnonymous()">
@@ -49,9 +51,12 @@
 </nav>
 <div class="container-fluid">
     <h4 class="py-3">Welcome to My</h4>
-    <div sec:authorize="hasRole('USER')">Text visible to user.</div>
-    <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
-    <div sec:authorize="isAuthenticated()">Text visible only to authenticated users</div>
+    <div class="row">
+        <div class="col" sec:authorize="isAnonymous()"> This is for all user who are not logged in</div>
+        <div  class="col" sec:authorize="isAuthenticated()">Text visible only to authenticated users</div>
+        <div class="col" sec:authorize="hasRole('USER')">Text visible to user.</div>
+        <div class="col" sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>
+    </div>
     <a th:href="@{/employees}">View User Sales</a>
 </div>
 </body>
