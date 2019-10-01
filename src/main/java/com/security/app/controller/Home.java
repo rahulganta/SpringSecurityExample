@@ -15,6 +15,11 @@ public class Home {
         return "index";
     }
 
+    @RequestMapping(value = {"/about"}, method = RequestMethod.GET)
+    public String about(Model model) {
+        return "about";
+    }
+
     @RequestMapping(value = "employees", method = RequestMethod.GET)
     public String employeesList(Model model) {
         return "employees";
