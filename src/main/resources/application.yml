@@ -3,6 +3,14 @@ server:
 spring:
   profiles:
     active: local
+  thymeleaf:
+    cache: false
+    prefix: file:./src/main/resources/templates/
+  resources:
+    static-locations: file:./src/main/resources/static/
+    cache:
+      cachecontrol:
+        cache-private: true
   datasource:
     url: jdbc:mysql://localhost:3306/test_springsecurity?createDatabaseIfNotExist=true&serverTimezone=UTC&useSSL=false
     username: root
@@ -18,7 +26,6 @@ spring:
     user:
       name: rahul
       password: password
-
 logging:
   level:
     root: info
