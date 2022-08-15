@@ -35,5 +35,9 @@ public class Home {
         return "logout";
     }
 
+    @GetMapping(value="/manageproducts")
+    public String manageProducts(Model model) {
+        return "manageproducts";
+    }
 
 }
